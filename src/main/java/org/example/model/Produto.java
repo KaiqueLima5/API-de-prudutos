@@ -1,16 +1,23 @@
 package org.example.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "produto")
 public class Produto {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
+
     private String nome;
     private String descricao;
-    private Double preco;
+    private double preco;
     private int quatEmEstoque;
 
     public Produto() {}
 
-    public Produto(Long codigo, String nome, String descricao, Double preco, int quatEmEstoque){
+    public Produto(Long codigo, String nome, String descricao, double preco, int quatEmEstoque){
         this.codigo = codigo;
         this.nome = nome;
         this.descricao = descricao;
@@ -42,11 +49,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(Double preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
